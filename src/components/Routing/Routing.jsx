@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import MainLayout from "../../pages/Layout";
 import PageLoader from "../PageLoader/PageLoader";
+import CustomErrorBoundary from "../CustomErrorBoundary/CustomErrorBoundary";
 
 
 
@@ -13,7 +14,9 @@ function Routing(){
 
 
     return(
-    <Routes>
+        <CustomErrorBoundary>
+            {/* children prop */}
+            <Routes>                  
             <Route path="/" element={<MainLayout />}>
             {/* whenever we click the home component that is on using / it will be rendering main layout and 
             in main layout where our outlet is and outlet is replaced by home component. */}
@@ -31,9 +34,10 @@ function Routing(){
                 } />
                     
             </Route>
-
-
-    </Routes>
+            </Routes>
+            {/* children prop */}
+        </CustomErrorBoundary>    
+    
 
 
 
