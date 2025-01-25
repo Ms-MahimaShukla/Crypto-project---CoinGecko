@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchCoinDetails } from "../services/fetchCoinDetails";
 import parse from 'html-react-parser';
 import currencyStore from "../state/store";
+import PageLoader from "../components/PageLoader/PageLoader";
 
 
 function CoinDetailsPage(){
@@ -19,7 +20,7 @@ const {isError,isLoading,data:coin}= useQuery(["coin",coinId],()=> fetchCoinDeta
 
 
 if (isLoading){
-    return <div>Loading....</div>
+    return <PageLoader/>
 }
 if (isError){
     return <div>Error: something went wrong</div>
