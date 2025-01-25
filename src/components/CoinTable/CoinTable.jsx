@@ -10,7 +10,7 @@ function CoinTable(){
 
     const navigate= useNavigate();
 
-const {currency} = currencyStore();
+   const {currency} = currencyStore();
    const [page,setPage]=useState(1); 
    const {data,isLoading,isError,error}=useQuery(['coin',page,currency],()=> fetchCoinData(page,currency),{
     // retry:2,             //how many time u want to retry
@@ -55,7 +55,8 @@ const {currency} = currencyStore();
             {isLoading && <div>Loading.....</div>}
             {data && data.map((coin)=>{
                 return(
-                    <div  onClick={()=> handleCoinRedirect(coin.id)}key={coin.id} className="w-full bg-transparent text-white flex py-4 px-2 font-semibold items-center justify-between cursor-pointer">
+                    <div  onClick={()=> handleCoinRedirect(coin.id)}key={coin.id} className="w-full bg-transparent text-white flex py-4 px-2 
+                    font-semibold items-center justify-between cursor-pointer">
                         <div className="flex items-center justify-start gap-3 basis-[35%]">
                             <div className="w-[5rem] h-[5rem]">
                                 <img src={coin.image} className="w-full h-full"/>
